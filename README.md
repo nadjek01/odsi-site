@@ -25,9 +25,18 @@ Data Safety form, so filling it in honestly also gives you the answers to both.
 
     index.html          landing page
     privacy/index.html  privacy policy (draft)
-    style.css           shared styles; palette and type mirror the app's theme.css
+    tokens.css          design tokens ported from the app's theme.css
+    style.css           page styles, built on those tokens
 
 No build step. Edit the HTML, push to `main`, Pages redeploys.
+
+## Design tokens
+
+`tokens.css` is the app's palette, type scale and rounding ported one-for-one from
+`common/src/main/css/theme.css` in the app repo — same hex values, same font, converted
+from Codename One's millimetres to pixels. It is the shared vocabulary for anything Odsi
+puts on the web, including the chef console and the eater web app when those exist. If a
+colour changes in the app, change it here too.
 
 ## Custom domain
 

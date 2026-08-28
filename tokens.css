@@ -1,0 +1,96 @@
+/* Odsi design tokens.
+ *
+ * Ported one-for-one from the app's common/src/main/css/theme.css. Same hex values, same
+ * font, same rounding. Codename One's CSS dialect selects on UIIDs and measures in
+ * millimetres; this file is the same design expressed the way a browser wants it, so both
+ * clients stay one product rather than drifting into two.
+ *
+ * Millimetre conversion: the app targets a ~71.5mm-wide phone screen at 390 CSS px, so
+ * 1mm = 5.45px. Values below are rounded to something a designer would actually type.
+ */
+
+:root {
+  /* ---- Ground and surfaces ---- */
+  --odsi-ground: #FCFAF5;        /* the warm cream every screen sits on */
+  --odsi-surface: #FFFFFF;       /* cards, the nameplate, the nav pill */
+  --odsi-surface-sunk: #F3F3F4;  /* form fields */
+
+  /* ---- Ink ---- */
+  --odsi-ink: #2A241D;           /* headings, chef names */
+  --odsi-ink-soft: #5F564C;      /* body, card metadata */
+  --odsi-ink-mute: #8A6F52;      /* "Local chef · Ghanaian" */
+  --odsi-ink-faint: #B7AFA4;     /* inactive nav */
+
+  --odsi-rule: #EFE3D7;          /* card and pill borders */
+
+  /* ---- The magnet palette. Saturated fills, dark text on the light ones. ---- */
+  --odsi-blue: #71AAF5;          /* primary action, active nav badge, the FAB */
+  --odsi-blue-pressed: #5B92D9;
+  --odsi-blue-ink: #2A5A9E;      /* active nav label */
+
+  --odsi-pink: #F571AD;          /* Ghanaian chip, destructive accent */
+  --odsi-pink-ink: #C4457E;      /* pink dark enough for text: Delete Account */
+
+  --odsi-amber: #FFC675;         /* Caribbean chip */
+  --odsi-amber-ink: #7A4A12;     /* text on amber */
+
+  --odsi-green: #81F571;         /* Italian chip */
+  --odsi-green-ink: #245214;     /* text on green */
+
+  /* ---- Type. Quicksand is the app font; keep the fallback honest. ---- */
+  --odsi-font: Quicksand, ui-rounded, system-ui, -apple-system, sans-serif;
+
+  /* theme.css sizes, converted from mm */
+  --odsi-text-xs: 11px;    /* 2mm   - nav labels, fine print */
+  --odsi-text-sm: 13px;    /* 2.4mm - card category line */
+  --odsi-text-base: 16px;  /* 3mm   - body, the workhorse (99 uses) */
+  --odsi-text-lg: 20px;    /* 3.7mm - chef name on a card */
+  --odsi-text-xl: 22px;    /* 4mm   - section headings */
+  --odsi-text-2xl: 27px;   /* 5mm   - dialog titles, screen headers */
+
+  /* ---- Rounding. The app rounds a lot and rounds consistently. ---- */
+  --odsi-radius-sm: 5px;    /* 1mm   - small fields */
+  --odsi-radius: 11px;      /* 2mm   - the default (41 uses) */
+  --odsi-radius-md: 12px;   /* 2.2mm - magnet badges */
+  --odsi-radius-lg: 22px;   /* 4mm   - buttons, cards, fields */
+  --odsi-radius-xl: 27px;   /* 5mm   - the spotlight card */
+  --odsi-pill: 999px;       /* the floating nav */
+
+  /* ---- Elevation. Codename One can't express these; the mockup always wanted them.
+     A hard offset shadow plus a coloured glow is what makes a magnet read as a magnet. ---- */
+  --odsi-shadow-card: 0 6px 16px rgba(42, 36, 29, .08);
+  --odsi-shadow-pill: 0 10px 24px rgba(42, 36, 29, .14);
+  --odsi-magnet-blue: 0 3px 0 rgba(0, 0, 0, .10), 0 5px 10px rgba(113, 170, 245, .40);
+  --odsi-magnet-pink: 0 4px 0 rgba(0, 0, 0, .08), 0 5px 10px rgba(245, 113, 173, .35);
+  --odsi-magnet-amber: 0 4px 0 rgba(0, 0, 0, .06), 0 5px 10px rgba(255, 198, 117, .40);
+  --odsi-magnet-green: 0 4px 0 rgba(0, 0, 0, .06), 0 5px 10px rgba(129, 245, 113, .35);
+}
+
+/* Dark mode. Values from the app's dark-theme.css, so the two agree. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --odsi-ground: #18191A;
+    --odsi-surface: #242526;
+    --odsi-surface-sunk: #242526;
+    --odsi-ink: #E4E6EA;
+    --odsi-ink-soft: #B1B3B7;
+    --odsi-ink-mute: #8A8D91;
+    --odsi-ink-faint: #8A8D91;
+    --odsi-rule: #3A3B3C;
+    --odsi-pink-ink: #F08CBD;
+    --odsi-blue-ink: #8CBBF8;
+  }
+}
+
+:root[data-theme="dark"] {
+  --odsi-ground: #18191A;
+  --odsi-surface: #242526;
+  --odsi-surface-sunk: #242526;
+  --odsi-ink: #E4E6EA;
+  --odsi-ink-soft: #B1B3B7;
+  --odsi-ink-mute: #8A8D91;
+  --odsi-ink-faint: #8A8D91;
+  --odsi-rule: #3A3B3C;
+  --odsi-pink-ink: #F08CBD;
+  --odsi-blue-ink: #8CBBF8;
+}
